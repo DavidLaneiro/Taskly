@@ -9,34 +9,37 @@ import SwiftUI
 
 struct TasklyHomePage: View {
     
+    @StateObject private var tasklyViewModel = TasklyViewModel()
+    
     var body: some View {
         ZStack{
             
             // Custom Gradient
             LinearGradient(colors: [Color(hex: "FF7D29"), Color(hex: "FFBF78")], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
-            
-            VStack(spacing: -10){
-                
-                // Title and plus button
-                
-                HStack{
-                    TasklyLogo()
-                    .padding(20)
-                    Spacer()
+            ScrollView{
+                VStack(spacing: -10){
                     
-                    Button(action: {
+                    // Logo section
+                    TasklyLogoSection()
+                    
+                    VStack{
+                        // Search bar
+                        TasklySearchBar(tasklyViewModel: self.tasklyViewModel)
                         
-                    }){
-                        Image(systemName: "plus.circle.fill").resizable().foregroundStyle(Color(hex: "FEFFD2")).frame(width: 32, height: 32).padding(20)
+                        // "Done" and "In Progress" Filters
+                        TasklyFilter()
+                        
+                        // Title
+                        TasklyLeftTitle(title: "Tasks").hidden()
+                        
+                        
+                        // No Data Screen
+                        TasklyNoTasks(tasklyViewModel: self.tasklyViewModel)
+                        
                     }
+     
+                    Spacer()
                 }
-                
-                // Search bar
-                TasklySearchBar()
-                
-            
-
-                Spacer()
             }
         }
     }
@@ -45,4 +48,3 @@ struct TasklyHomePage: View {
 #Preview {
     TasklyHomePage()
 }
-

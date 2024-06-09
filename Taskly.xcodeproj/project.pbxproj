@@ -14,6 +14,13 @@
 		122560322C150F13007D72A6 /* Color+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560312C150F13007D72A6 /* Color+Extension.swift */; };
 		122560352C1512CB007D72A6 /* TasklyLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560342C1512CB007D72A6 /* TasklyLogo.swift */; };
 		122560372C15281F007D72A6 /* TasklySearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560362C15281F007D72A6 /* TasklySearchBar.swift */; };
+		122560392C1647C6007D72A6 /* TasklyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560382C1647C6007D72A6 /* TasklyViewModel.swift */; };
+		1225603B2C16540B007D72A6 /* TasklyLogoSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1225603A2C16540B007D72A6 /* TasklyLogoSection.swift */; };
+		1225603D2C16572F007D72A6 /* TasklyFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1225603C2C16572F007D72A6 /* TasklyFilter.swift */; };
+		1225603F2C165928007D72A6 /* TasklySingleFilterButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1225603E2C165928007D72A6 /* TasklySingleFilterButton.swift */; };
+		122560412C165FAD007D72A6 /* TasklyLeftTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560402C165FAD007D72A6 /* TasklyLeftTitle.swift */; };
+		122560432C166C6D007D72A6 /* TasklyCreateTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560422C166C6D007D72A6 /* TasklyCreateTask.swift */; };
+		122560452C166CE5007D72A6 /* TasklyNoTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560442C166CE5007D72A6 /* TasklyNoTasks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +32,13 @@
 		122560312C150F13007D72A6 /* Color+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extension.swift"; sourceTree = "<group>"; };
 		122560342C1512CB007D72A6 /* TasklyLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyLogo.swift; sourceTree = "<group>"; };
 		122560362C15281F007D72A6 /* TasklySearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklySearchBar.swift; sourceTree = "<group>"; };
+		122560382C1647C6007D72A6 /* TasklyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyViewModel.swift; sourceTree = "<group>"; };
+		1225603A2C16540B007D72A6 /* TasklyLogoSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyLogoSection.swift; sourceTree = "<group>"; };
+		1225603C2C16572F007D72A6 /* TasklyFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyFilter.swift; sourceTree = "<group>"; };
+		1225603E2C165928007D72A6 /* TasklySingleFilterButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklySingleFilterButton.swift; sourceTree = "<group>"; };
+		122560402C165FAD007D72A6 /* TasklyLeftTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyLeftTitle.swift; sourceTree = "<group>"; };
+		122560422C166C6D007D72A6 /* TasklyCreateTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyCreateTask.swift; sourceTree = "<group>"; };
+		122560442C166CE5007D72A6 /* TasklyNoTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyNoTasks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +92,7 @@
 		122560292C150D89007D72A6 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				122560382C1647C6007D72A6 /* TasklyViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -87,6 +102,7 @@
 			children = (
 				122560332C1512B9007D72A6 /* CustomViews */,
 				1225602E2C150DD3007D72A6 /* TasklyHomePage.swift */,
+				122560422C166C6D007D72A6 /* TasklyCreateTask.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -104,6 +120,11 @@
 			children = (
 				122560342C1512CB007D72A6 /* TasklyLogo.swift */,
 				122560362C15281F007D72A6 /* TasklySearchBar.swift */,
+				1225603A2C16540B007D72A6 /* TasklyLogoSection.swift */,
+				1225603C2C16572F007D72A6 /* TasklyFilter.swift */,
+				1225603E2C165928007D72A6 /* TasklySingleFilterButton.swift */,
+				122560402C165FAD007D72A6 /* TasklyLeftTitle.swift */,
+				122560442C166CE5007D72A6 /* TasklyNoTasks.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -179,9 +200,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				122560372C15281F007D72A6 /* TasklySearchBar.swift in Sources */,
+				122560452C166CE5007D72A6 /* TasklyNoTasks.swift in Sources */,
 				122560352C1512CB007D72A6 /* TasklyLogo.swift in Sources */,
+				122560392C1647C6007D72A6 /* TasklyViewModel.swift in Sources */,
+				1225603D2C16572F007D72A6 /* TasklyFilter.swift in Sources */,
+				1225603F2C165928007D72A6 /* TasklySingleFilterButton.swift in Sources */,
+				122560432C166C6D007D72A6 /* TasklyCreateTask.swift in Sources */,
+				122560412C165FAD007D72A6 /* TasklyLeftTitle.swift in Sources */,
 				1225602F2C150DD3007D72A6 /* TasklyHomePage.swift in Sources */,
 				122560322C150F13007D72A6 /* Color+Extension.swift in Sources */,
+				1225603B2C16540B007D72A6 /* TasklyLogoSection.swift in Sources */,
 				1225601C2C150D70007D72A6 /* TasklyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
