@@ -20,7 +20,7 @@ struct TasklyHomePage: View {
                 VStack(spacing: -10){
                     
                     // Logo section
-                    TasklyLogoSection()
+                    TasklyLogoSection(tasklyViewModel: self.tasklyViewModel)
                     
                     VStack{
                         // Search bar
