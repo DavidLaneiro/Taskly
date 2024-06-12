@@ -25,7 +25,11 @@ struct TasklyLogoSection: View {
                 
             }){
                 Image(systemName: "plus.circle.fill").resizable().foregroundStyle(Color(hex: "FEFFD2")).frame(width: 32, height: 32).padding(20)
-            }
+            }.fullScreenCover(isPresented: self.$tasklyViewModel.isSheetPresented, content: {
+                
+                TasklyCreateTask(tasklyViewModel: self.tasklyViewModel)
+                
+            })
         }
     }
 }

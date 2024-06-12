@@ -11,10 +11,19 @@ import Combine
 
 class TasklyViewModel : ObservableObject{
     
+    @Published var tasks : [Task] = []
     @Published var searchBarQuery : String = ""
     @Published var isSheetPresented : Bool = false
-
-    private var cancellables : Set<AnyCancellable> = []
+    @Published var taskContent : String = ""
+    
+    let tasksCrudService : CoreDataTasklyService
+    
+    private var cancellables: Set<AnyCancellable> = []
+    
+    
+    init(coreDataTasklyService: CoreDataTasklyService = CoreDataTasklyService()) {
+        self.tasksCrudService = coreDataTasklyService
+    }
 
     
     func deleteSearchBarQuery(){
@@ -28,6 +37,42 @@ class TasklyViewModel : ObservableObject{
         self.isSheetPresented.toggle()
         
     }
+    
+    func fetchTasks(){
+        
+        self.tasksCrudService.fetchTasks()
+            .receive(on: DispatchQueue.main)
+            .sink{ completion in
+                
+                switch completion{
+                    
+                case .finished:
+                    print("Successful fetch!")
+                case .failure(let error):
+                    print("Failed to fetch Tasks with error: \(error)")
+                    
+                }
+    
+            } receiveValue: {  [weak self] tasks in
+                
+                
+                self?.tasks = tasks
+            
+
+                
+            }.store(in: &cancellables)
+        
+    }
+    
+    func addTask(){
+  
+        self.tasksCrudService.addTask(taskDueDate: Date(), taskTitle: self.taskContent)
+        
+        self.fetchTasks()
+        
+    }
+    
+    // Add the remaining crud functions
     
     
 }

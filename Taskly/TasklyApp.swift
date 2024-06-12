@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct TasklyApp: App {
+    
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             TasklyHomePage()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 }

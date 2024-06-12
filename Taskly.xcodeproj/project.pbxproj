@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120B99CF2C1917B80018C012 /* TasklyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99CE2C1917B80018C012 /* TasklyList.swift */; };
 		1225601C2C150D70007D72A6 /* TasklyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1225601B2C150D70007D72A6 /* TasklyApp.swift */; };
 		122560202C150D71007D72A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1225601F2C150D71007D72A6 /* Assets.xcassets */; };
 		122560232C150D71007D72A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 122560222C150D71007D72A6 /* Preview Assets.xcassets */; };
@@ -21,9 +22,15 @@
 		122560412C165FAD007D72A6 /* TasklyLeftTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560402C165FAD007D72A6 /* TasklyLeftTitle.swift */; };
 		122560432C166C6D007D72A6 /* TasklyCreateTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560422C166C6D007D72A6 /* TasklyCreateTask.swift */; };
 		122560452C166CE5007D72A6 /* TasklyNoTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560442C166CE5007D72A6 /* TasklyNoTasks.swift */; };
+		122560492C188A19007D72A6 /* TasklyCancelCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560482C188A19007D72A6 /* TasklyCancelCreate.swift */; };
+		122560502C18DEF4007D72A6 /* TasklyTasksModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1225604E2C18DEF4007D72A6 /* TasklyTasksModel.xcdatamodeld */; };
+		122560532C18E06A007D72A6 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560522C18E06A007D72A6 /* PersistenceController.swift */; };
+		122560552C18E194007D72A6 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560542C18E194007D72A6 /* Task.swift */; };
+		122560572C18F654007D72A6 /* CoreDataTasklyService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560562C18F654007D72A6 /* CoreDataTasklyService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		120B99CE2C1917B80018C012 /* TasklyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyList.swift; sourceTree = "<group>"; };
 		122560182C150D70007D72A6 /* Taskly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taskly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1225601B2C150D70007D72A6 /* TasklyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyApp.swift; sourceTree = "<group>"; };
 		1225601F2C150D71007D72A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -39,6 +46,11 @@
 		122560402C165FAD007D72A6 /* TasklyLeftTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyLeftTitle.swift; sourceTree = "<group>"; };
 		122560422C166C6D007D72A6 /* TasklyCreateTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyCreateTask.swift; sourceTree = "<group>"; };
 		122560442C166CE5007D72A6 /* TasklyNoTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyNoTasks.swift; sourceTree = "<group>"; };
+		122560482C188A19007D72A6 /* TasklyCancelCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyCancelCreate.swift; sourceTree = "<group>"; };
+		1225604F2C18DEF4007D72A6 /* TasklyTasksModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TasklyTasksModel.xcdatamodel; sourceTree = "<group>"; };
+		122560522C18E06A007D72A6 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		122560542C18E194007D72A6 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		122560562C18F654007D72A6 /* CoreDataTasklyService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTasklyService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +83,8 @@
 		1225601A2C150D70007D72A6 /* Taskly */ = {
 			isa = PBXGroup;
 			children = (
+				1225604D2C18DED5007D72A6 /* CoreDataStack */,
+				1225604C2C18DED0007D72A6 /* Models */,
 				122560302C150EE1007D72A6 /* Extensions */,
 				1225602B2C150D9C007D72A6 /* Views */,
 				122560292C150D89007D72A6 /* ViewModels */,
@@ -125,8 +139,36 @@
 				1225603E2C165928007D72A6 /* TasklySingleFilterButton.swift */,
 				122560402C165FAD007D72A6 /* TasklyLeftTitle.swift */,
 				122560442C166CE5007D72A6 /* TasklyNoTasks.swift */,
+				122560482C188A19007D72A6 /* TasklyCancelCreate.swift */,
+				120B99CE2C1917B80018C012 /* TasklyList.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		1225604C2C18DED0007D72A6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				122560542C18E194007D72A6 /* Task.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		1225604D2C18DED5007D72A6 /* CoreDataStack */ = {
+			isa = PBXGroup;
+			children = (
+				122560512C18DF58007D72A6 /* CoreDataTaskModel */,
+				122560522C18E06A007D72A6 /* PersistenceController.swift */,
+				122560562C18F654007D72A6 /* CoreDataTasklyService.swift */,
+			);
+			path = CoreDataStack;
+			sourceTree = "<group>";
+		};
+		122560512C18DF58007D72A6 /* CoreDataTaskModel */ = {
+			isa = PBXGroup;
+			children = (
+				1225604E2C18DEF4007D72A6 /* TasklyTasksModel.xcdatamodeld */,
+			);
+			path = CoreDataTaskModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,6 +241,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				122560502C18DEF4007D72A6 /* TasklyTasksModel.xcdatamodeld in Sources */,
+				122560492C188A19007D72A6 /* TasklyCancelCreate.swift in Sources */,
 				122560372C15281F007D72A6 /* TasklySearchBar.swift in Sources */,
 				122560452C166CE5007D72A6 /* TasklyNoTasks.swift in Sources */,
 				122560352C1512CB007D72A6 /* TasklyLogo.swift in Sources */,
@@ -208,9 +252,13 @@
 				122560432C166C6D007D72A6 /* TasklyCreateTask.swift in Sources */,
 				122560412C165FAD007D72A6 /* TasklyLeftTitle.swift in Sources */,
 				1225602F2C150DD3007D72A6 /* TasklyHomePage.swift in Sources */,
+				120B99CF2C1917B80018C012 /* TasklyList.swift in Sources */,
 				122560322C150F13007D72A6 /* Color+Extension.swift in Sources */,
 				1225603B2C16540B007D72A6 /* TasklyLogoSection.swift in Sources */,
 				1225601C2C150D70007D72A6 /* TasklyApp.swift in Sources */,
+				122560572C18F654007D72A6 /* CoreDataTasklyService.swift in Sources */,
+				122560552C18E194007D72A6 /* Task.swift in Sources */,
+				122560532C18E06A007D72A6 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,8 +398,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -379,8 +427,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -416,6 +464,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1225604E2C18DEF4007D72A6 /* TasklyTasksModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1225604F2C18DEF4007D72A6 /* TasklyTasksModel.xcdatamodel */,
+			);
+			currentVersion = 1225604F2C18DEF4007D72A6 /* TasklyTasksModel.xcdatamodel */;
+			path = TasklyTasksModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 122560102C150D70007D72A6 /* Project object */;
 }
