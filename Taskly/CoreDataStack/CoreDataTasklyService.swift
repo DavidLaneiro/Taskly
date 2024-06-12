@@ -35,6 +35,8 @@ class CoreDataTasklyService {
                     Task(entity: $0)
                     
                 })
+            
+
                 
                 promise(.success(tasksFetched))
                 
@@ -64,10 +66,10 @@ class CoreDataTasklyService {
         self.persistenceController.saveContext()
     }
     
-    func deleteTask(taskToDelete: Task){
+    func deleteTask(taskId: UUID){
         let context = self.persistenceController.container.viewContext
         
-        if let taskEntity = self.fetchTaskEntity(withID: taskToDelete.id){
+        if let taskEntity = self.fetchTaskEntity(withID: taskId){
             
             // Delete task
             context.delete(taskEntity)

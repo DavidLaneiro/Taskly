@@ -72,7 +72,22 @@ class TasklyViewModel : ObservableObject{
         
     }
     
-    // Add the remaining crud functions
+    func removeTask(taskId: UUID){
+        
+        self.tasksCrudService.deleteTask(taskId: taskId)
+        
+        self.fetchTasks()
+        
+        
+    }
+    
+    func updateTask(updatedTask: Task){
+        
+        self.tasksCrudService.updateTask(updatedTask: updatedTask)
+        
+        self.fetchTasks()
+    }
+    
     
     
 }

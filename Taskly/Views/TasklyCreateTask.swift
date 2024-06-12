@@ -15,7 +15,7 @@ struct TasklyCreateTask: View {
         ZStack{
             
             // Custom Gradient
-            LinearGradient(colors: [Color(hex: "FF7D29"), Color(hex: "FFBF78")], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
+            Color(hex: "FD9B63").ignoresSafeArea()
             
             ScrollView{
                 VStack(spacing: 20){

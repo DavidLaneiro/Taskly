@@ -14,52 +14,44 @@ struct TasklyHomePage: View {
     var body: some View {
         ZStack{
             
-            // Custom Gradient
-            LinearGradient(colors: [Color(hex: "FF7D29"), Color(hex: "FFBF78")], startPoint: .top, endPoint: .bottom).ignoresSafeArea()
-            ScrollView{
+            Color(hex: "FD9B63").ignoresSafeArea()
+            
+            VStack(spacing: -10){
                 
-                VStack(spacing: -10){
+                // Logo section
+                TasklyLogoSection(tasklyViewModel: self.tasklyViewModel)
+                
+                VStack{
                     
-                    // Logo section
-                    TasklyLogoSection(tasklyViewModel: self.tasklyViewModel)
+                    // Search bar
+                    TasklySearchBar(tasklyViewModel: self.tasklyViewModel)
                     
-                    VStack{
+                    // "Done" and "In Progress" Filters
+                    TasklyFilter()
+                    
+                    if self.tasklyViewModel.tasks.isEmpty{
                         
-                        // Search bar
-                        TasklySearchBar(tasklyViewModel: self.tasklyViewModel)
+                        // No Data Screen
+                        Spacer()
+                        TasklyNoTasks(tasklyViewModel: self.tasklyViewModel)
+                        Spacer()
                         
-                        // "Done" and "In Progress" Filters
-                        TasklyFilter()
+                    }else{
                         
                         VStack(spacing: 20){
-                            
-                            if self.tasklyViewModel.tasks.isEmpty{
-                                
-                                // Title
-                                TasklyLeftTitle(title: "Tasks").hidden()
-                                
-                                // No Data Screen
-                                TasklyNoTasks(tasklyViewModel: self.tasklyViewModel)
-                                
-                            }else{
-                                
-                                // Title
-                                TasklyLeftTitle(title: "Tasks")
-                                
-                                // List of Tasks
-                                TasklyList(tasklyViewModel: self.tasklyViewModel)
-                                    
-   
-                            }
-  
+                            TasklyLeftTitle(title: "Tasks")
+                            TasklyList(tasklyViewModel: self.tasklyViewModel)
                         }
+
                         
                     }
-     
-                    Spacer()
                 }
-            }.scrollIndicators(.hidden)
-        }.onAppear(perform: {
+                
+                Spacer()
+            }
+            
+        }
+        .onAppear(perform: {
             
             self.tasklyViewModel.fetchTasks()
         })

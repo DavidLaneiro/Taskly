@@ -115,8 +115,8 @@
 			isa = PBXGroup;
 			children = (
 				122560332C1512B9007D72A6 /* CustomViews */,
-				1225602E2C150DD3007D72A6 /* TasklyHomePage.swift */,
 				122560422C166C6D007D72A6 /* TasklyCreateTask.swift */,
+				1225602E2C150DD3007D72A6 /* TasklyHomePage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -187,6 +187,8 @@
 			dependencies = (
 			);
 			name = Taskly;
+			packageProductDependencies = (
+			);
 			productName = Taskly;
 			productReference = 122560182C150D70007D72A6 /* Taskly.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +217,8 @@
 				Base,
 			);
 			mainGroup = 1225600F2C150D70007D72A6;
+			packageReferences = (
+			);
 			productRefGroup = 122560192C150D70007D72A6 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

@@ -14,8 +14,10 @@ struct TasklyApp: App {
     
     var body: some Scene {
         WindowGroup {
-            TasklyHomePage()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            NavigationStack{
+                TasklyHomePage()
+                    .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            }
         }
     }
 }
