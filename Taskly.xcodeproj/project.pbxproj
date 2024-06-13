@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		120B99CF2C1917B80018C012 /* TasklyList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99CE2C1917B80018C012 /* TasklyList.swift */; };
+		120B99D62C1B31BF0018C012 /* TasklyTaskListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99D52C1B31BF0018C012 /* TasklyTaskListElement.swift */; };
 		1225601C2C150D70007D72A6 /* TasklyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1225601B2C150D70007D72A6 /* TasklyApp.swift */; };
 		122560202C150D71007D72A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1225601F2C150D71007D72A6 /* Assets.xcassets */; };
 		122560232C150D71007D72A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 122560222C150D71007D72A6 /* Preview Assets.xcassets */; };
@@ -31,6 +32,7 @@
 
 /* Begin PBXFileReference section */
 		120B99CE2C1917B80018C012 /* TasklyList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyList.swift; sourceTree = "<group>"; };
+		120B99D52C1B31BF0018C012 /* TasklyTaskListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyTaskListElement.swift; sourceTree = "<group>"; };
 		122560182C150D70007D72A6 /* Taskly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taskly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1225601B2C150D70007D72A6 /* TasklyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyApp.swift; sourceTree = "<group>"; };
 		1225601F2C150D71007D72A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				122560442C166CE5007D72A6 /* TasklyNoTasks.swift */,
 				122560482C188A19007D72A6 /* TasklyCancelCreate.swift */,
 				120B99CE2C1917B80018C012 /* TasklyList.swift */,
+				120B99D52C1B31BF0018C012 /* TasklyTaskListElement.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				122560572C18F654007D72A6 /* CoreDataTasklyService.swift in Sources */,
 				122560552C18E194007D72A6 /* Task.swift in Sources */,
 				122560532C18E06A007D72A6 /* PersistenceController.swift in Sources */,
+				120B99D62C1B31BF0018C012 /* TasklyTaskListElement.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -29,18 +29,19 @@ struct TasklyFilter: View {
                         id: 1,
                         proxy: proxy
                     )
-                    filterButton(
-                        title: "Done",
-                        imageName: "checkmark",
-                        buttonType: .Completed,
-                        id: 2,
-                        proxy: proxy
-                    )
+
                     filterButton(
                         title: "In progress",
                         imageName: "rays",
                         buttonType: .InProgress,
                         id: 3,
+                        proxy: proxy
+                    )
+                    filterButton(
+                        title: "Done",
+                        imageName: "checkmark",
+                        buttonType: .Completed,
+                        id: 2,
                         proxy: proxy
                     )
                 }
@@ -60,7 +61,8 @@ struct TasklyFilter: View {
             selectedButtonType = buttonType
             updateViewModel(for: buttonType)
             withAnimation {
-                proxy.scrollTo(id)
+                proxy.scrollTo(id, anchor: .center)
+                
             }
         }
         .id(id)

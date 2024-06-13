@@ -26,6 +26,8 @@ class CoreDataTasklyService {
         
         let context = self.persistenceController.container.viewContext
         
+        self.fetchRequest.sortDescriptors = [NSSortDescriptor(key: "order", ascending: false)]
+        
         return Future<[Task], Error>{ [weak self] promise in
             do{
                 
@@ -36,14 +38,8 @@ class CoreDataTasklyService {
                     Task(entity: $0)
                     
                 })
-            
                 
-                let tasksSorted = tasksFetched.sorted(by: {
-                    $0.dueDate.compare($1.dueDate) == .orderedDescending
-                })
-                
-                
-                promise(.success(tasksSorted))
+                promise(.success(tasksFetched))
                 
             }catch{
                 
@@ -57,16 +53,20 @@ class CoreDataTasklyService {
         
     }
     
-    func addTask(taskDueDate: Date, taskTitle: String){
+    func addTask(currentTasks: [Task], taskDueDate: Date, taskTitle: String){
         
         let context = self.persistenceController.container.viewContext
         let newEntityTask = TaskEntity(context: context)
+        let nextOrder = currentTasks.isEmpty ? 0 : (currentTasks.map { $0.order }).max()! + 1
+        
+        
         
         // Create new task
         newEntityTask.id = UUID()
         newEntityTask.dueDate = taskDueDate
         newEntityTask.isCompleted = false
         newEntityTask.title = taskTitle
+        newEntityTask.order = nextOrder
         
         self.persistenceController.saveContext()
     }
@@ -99,6 +99,19 @@ class CoreDataTasklyService {
 
     }
     
+    func updateTaskOrder(updatedTask: Task){
+        
+        if let taskEntity = self.fetchTaskEntity(withID: updatedTask.id){
+            
+            // Update Task
+
+            taskEntity.order = updatedTask.order
+
+            self.persistenceController.saveContext()
+            
+        }
+    }
+    
     func filterTasks(searchQuery: String = "", isCompleted : Bool = false, isInProgress : Bool = false) {
         
         var predicates: [NSPredicate] = []
@@ -124,6 +137,8 @@ class CoreDataTasklyService {
             
         }
     }
+    
+
 
     
     private func fetchTaskEntity(withID id: UUID) -> TaskEntity? {

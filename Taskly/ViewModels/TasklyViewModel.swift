@@ -106,14 +106,14 @@ class TasklyViewModel : ObservableObject{
                 // intact
                 
                 if (self?.isCompletedToggled ?? false) || (self?.isInProgressToggled ?? false) || !(self?.searchBarQuery.isEmpty ?? true){
-                    withAnimation{
+
                         self?.filteredTasks = tasks
-                    }
+
                 }else{
-                    withAnimation{
+
                         self?.tasks = tasks
                         self?.filteredTasks = tasks
-                    }
+
                 }
  
             }.store(in: &cancellables)
@@ -124,7 +124,7 @@ class TasklyViewModel : ObservableObject{
     
     func addTask(){
   
-        self.tasksCrudService.addTask(taskDueDate: Date(), taskTitle: self.taskContent)
+        self.tasksCrudService.addTask(currentTasks: self.tasks, taskDueDate: Date(), taskTitle: self.taskContent)
         
         self.fetchTasks()
         
@@ -155,8 +155,27 @@ class TasklyViewModel : ObservableObject{
         
     }
     
+    func moveTask(from source: IndexSet, to destination: Int) {
+        
+        
+        filteredTasks.move(fromOffsets: source, toOffset: destination)
+        
+        let maxIndex = filteredTasks.count
+        
+        // Update the order attribute in Core Data
+        for (index, _) in filteredTasks.enumerated() {
+            
+            let newIndex = Int64(maxIndex - index)
+            
+            filteredTasks[index].order = newIndex
+            self.tasksCrudService.updateTaskOrder(updatedTask: filteredTasks[index])
+        }
+        
+        // Fetch tasks to refresh the view
+        fetchTasks()
+    }
+}
 
-    
-    
-    
+#Preview {
+    TasklyHomePage()
 }

@@ -12,76 +12,45 @@ struct TasklyList: View {
     
     @ObservedObject var tasklyViewModel : TasklyViewModel
     
+    
     var body: some View {
-        
-        List{
-            // Title
-            ForEach(self.tasklyViewModel.filteredTasks){ task in
+            List{
+                // Title
                 
-                
-                Button(action: {
-                    
-                    print("This is a list element")
-                    
-                }){
-                    
-                    HStack(spacing: 20){
+                Section {
+                    ForEach(self.tasklyViewModel.filteredTasks){ task in
                         
-                        Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle")
-                            .resizable()
-                            .frame(width: 30, height: 30)
-                            .foregroundStyle(Color(hex: "FD9B63"))
-                            .onTapGesture(perform: {
-                                
-                                // Needs to update the variable to True
-                                
-                                self.tasklyViewModel.toggleCompletion(task: task)
-                            })
                         
-                        Text("\(task.title)")
-                            .lineLimit(1)
-                            .font(.title3)
-                            .bold()
-                            .foregroundStyle(Color(hex: "FD9B63"))
-                            .strikethrough(task.isCompleted ? true : false)
-                            .animation(.interactiveSpring, value: task.isCompleted)
+                        TasklyTaskListElement(task: task, tasklyViewModel: self.tasklyViewModel)
+                            .listRowBackground(Color(hex: "FEFFD2"))
+                        
+                         
+                        
+                        
                     }
-                
-                }
-                .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                .swipeActions{
-                        Button(role: .destructive){
-                            
-                            self.tasklyViewModel.removeTask(taskId: task.id)
-                            
-                            
-                        } label: {
-                            
-                            Label("Delete", systemImage: "trash")
-                            
+                    .onMove(perform: { indices, newOffset in
+                        withAnimation(.easeInOut){
+                            self.tasklyViewModel.moveTask(from: indices, to: newOffset)
                         }
-                }
-                .transition(.opacity)
                     
+                    })
+                    
+                }header: {
+                    
+                    Text("Tasks").foregroundStyle(Color(hex: "FEFFD2"))
+                }
+                
+                
             }
-            .listRowBackground(
-                RoundedRectangle(cornerRadius: 20).foregroundStyle(Color(hex: "FEFFD2"))
-            )
-
-        }
-        .scrollContentBackground(.hidden)
-        .scrollIndicators(.hidden)
-        .listRowSpacing(20)
-        .background(.clear)
-        .listStyle(.plain)
-        .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-        
+            .scrollContentBackground(.hidden)
+            .scrollIndicators(.hidden)
+            .listRowSpacing(10)
         
     }
     
 }
 
-
 #Preview {
     TasklyHomePage()
 }
+

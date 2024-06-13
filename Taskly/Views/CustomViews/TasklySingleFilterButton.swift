@@ -33,13 +33,19 @@ struct TasklySingleFilterButton: View {
                     .foregroundStyle(Color(hex: self.isSelected ? "FEFFD2" : "FF7D29"))
                 
             }
-            .padding(EdgeInsets(top: 10, leading: 30, bottom: 10, trailing: 30))
+            .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
             .background(
                 RoundedRectangle(cornerRadius: 30.0)
                     .fill(Color(hex: self.isSelected ? "FF7D29" : "FEFFD2"))
+                
                 
             )
         }
     }
 }
+
+#Preview {
+    TasklyHomePage()
+}
+
 
