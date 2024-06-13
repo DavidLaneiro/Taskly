@@ -9,6 +9,7 @@ import Foundation
 import CoreData
 import Combine
 
+
 class CoreDataTasklyService {
     
     private let persistenceController : PersistenceController
@@ -36,9 +37,13 @@ class CoreDataTasklyService {
                     
                 })
             
-
                 
-                promise(.success(tasksFetched))
+                let tasksSorted = tasksFetched.sorted(by: {
+                    $0.dueDate.compare($1.dueDate) == .orderedDescending
+                })
+                
+                
+                promise(.success(tasksSorted))
                 
             }catch{
                 
@@ -94,6 +99,33 @@ class CoreDataTasklyService {
 
     }
     
+    func filterTasks(searchQuery: String = "", isCompleted : Bool = false, isInProgress : Bool = false) {
+        
+        var predicates: [NSPredicate] = []
+        
+        if !searchQuery.isEmpty{
+            predicates.append(NSPredicate(format: "title CONTAINS[cd] %@", searchQuery))
+        }
+        
+        if isCompleted{
+            predicates.append(NSPredicate(format: "isCompleted == %@", NSNumber(value: true)))
+        }else if isInProgress{
+            predicates.append(NSPredicate(format: "isCompleted == %@", NSNumber(value: false)))
+        }
+        
+        if !predicates.isEmpty{
+            
+            self.fetchRequest.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: predicates)
+            
+        }else{
+            
+            
+            self.fetchRequest.predicate = nil
+            
+        }
+    }
+
+    
     private func fetchTaskEntity(withID id: UUID) -> TaskEntity? {
         
         let request: NSFetchRequest<TaskEntity> = TaskEntity.fetchRequest()
@@ -104,6 +136,7 @@ class CoreDataTasklyService {
         
         return (try? context.fetch(request))?.first
     }
+    
     
     
 }

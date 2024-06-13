@@ -22,6 +22,7 @@ struct TasklyLogoSection: View {
             Button(action: {
                 
                 self.tasklyViewModel.toggleIsSheetPresented()
+                self.tasklyViewModel.taskContent = ""
                 
             }){
                 Image(systemName: "plus.circle.fill").resizable().foregroundStyle(Color(hex: "FEFFD2")).frame(width: 32, height: 32).padding(20)

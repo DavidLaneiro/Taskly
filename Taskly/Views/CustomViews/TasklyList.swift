@@ -16,7 +16,7 @@ struct TasklyList: View {
         
         List{
             // Title
-            ForEach(self.tasklyViewModel.tasks){ task in
+            ForEach(self.tasklyViewModel.filteredTasks){ task in
                 
                 
                 Button(action: {
@@ -29,13 +29,13 @@ struct TasklyList: View {
                         
                         Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle")
                             .resizable()
-                            .frame(width:30, height: 30)
+                            .frame(width: 30, height: 30)
                             .foregroundStyle(Color(hex: "FD9B63"))
                             .onTapGesture(perform: {
                                 
                                 // Needs to update the variable to True
                                 
-                                self.tasklyViewModel.updateTask(updatedTask: task)
+                                self.tasklyViewModel.toggleCompletion(task: task)
                             })
                         
                         Text("\(task.title)")

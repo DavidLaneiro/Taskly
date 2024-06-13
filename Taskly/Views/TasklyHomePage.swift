@@ -27,17 +27,27 @@ struct TasklyHomePage: View {
                     TasklySearchBar(tasklyViewModel: self.tasklyViewModel)
                     
                     // "Done" and "In Progress" Filters
-                    TasklyFilter()
+                    TasklyFilter(tasklyViewModel: self.tasklyViewModel)
                     
                     if self.tasklyViewModel.tasks.isEmpty{
                         
                         // No Data Screen
                         Spacer()
-                        TasklyNoTasks(tasklyViewModel: self.tasklyViewModel)
+                        TasklyNoTasks(tasklyViewModel: self.tasklyViewModel, upperImageName: "note.text.badge.plus", largerText: "No tasks yet", shorterText: "Tap to add your first task!", tapEnabled: true)
+                        Spacer()
+                        Spacer()
+                        
+                    }else if self.tasklyViewModel.filteredTasks.isEmpty{
+                        
+                        // No results screen
+                        Spacer()
+                        TasklyNoTasks(tasklyViewModel: self.tasklyViewModel, upperImageName: "questionmark.bubble", largerText: "No tasks found", shorterText: "No results found for your search.", tapEnabled: false
+)
+                        Spacer()
                         Spacer()
                         
                     }else{
-                        
+                
                         VStack(spacing: 20){
                             TasklyLeftTitle(title: "Tasks")
                             TasklyList(tasklyViewModel: self.tasklyViewModel)
@@ -51,10 +61,7 @@ struct TasklyHomePage: View {
             }
             
         }
-        .onAppear(perform: {
-            
-            self.tasklyViewModel.fetchTasks()
-        })
+       
     }
 }
 

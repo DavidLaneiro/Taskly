@@ -12,9 +12,15 @@ import Combine
 class TasklyViewModel : ObservableObject{
     
     @Published var tasks : [Task] = []
+    @Published var filteredTasks : [Task] = []
+    
     @Published var searchBarQuery : String = ""
     @Published var isSheetPresented : Bool = false
     @Published var taskContent : String = ""
+    
+    @Published var isAllToggled : Bool = true
+    @Published var isCompletedToggled : Bool = false
+    @Published var isInProgressToggled : Bool = false
     
     let tasksCrudService : CoreDataTasklyService
     
@@ -23,8 +29,40 @@ class TasklyViewModel : ObservableObject{
     
     init(coreDataTasklyService: CoreDataTasklyService = CoreDataTasklyService()) {
         self.tasksCrudService = coreDataTasklyService
+        self.setupSearchBarBinding()
+        self.setupToggleBindings()
+        
     }
 
+    fileprivate func setupSearchBarBinding(){
+        
+        self.$searchBarQuery
+            .receive(on: DispatchQueue.main)
+            .sink{ _ in
+            } receiveValue: { [weak self] newQuery in
+                
+                // Filter results with newQuery
+                print("New query -> \(newQuery)")
+                self?.filterTasks(searchQuery: newQuery)
+                
+            }.store(in: &cancellables)
+        
+    }
+    
+    fileprivate func setupToggleBindings(){
+        
+        let mergePublisher = Publishers.Merge($isCompletedToggled, $isInProgressToggled)
+        
+        mergePublisher
+            .receive(on: DispatchQueue.main)
+            .sink{ _ in
+            } receiveValue: { [weak self] newValue in
+                
+                self?.filterTasks()
+                
+                
+            }.store(in: &cancellables)
+    }
     
     func deleteSearchBarQuery(){
         
@@ -38,7 +76,17 @@ class TasklyViewModel : ObservableObject{
         
     }
     
-    func fetchTasks(){
+    func toggleCompletion(task: Task){
+        
+        if let index = tasks.firstIndex(where: { $0.id == task.id }) {
+            tasks[index].isCompleted.toggle()
+            updateTask(updatedTask: tasks[index])
+        }
+    
+        
+    }
+    
+    func fetchTasks(isFilter: Bool = false){
         
         self.tasksCrudService.fetchTasks()
             .receive(on: DispatchQueue.main)
@@ -55,11 +103,24 @@ class TasklyViewModel : ObservableObject{
     
             } receiveValue: {  [weak self] tasks in
                 
+                if isFilter{
+                    
+                    self?.filteredTasks = tasks
+                    
+                }else{
                 
-                self?.tasks = tasks
-            
-
-                
+                    
+                    if self?.isCompletedToggled ?? false || self?.isInProgressToggled ?? false{
+                        
+                        self?.filteredTasks = tasks
+                    }else{
+                        self?.tasks = tasks
+                        self?.filteredTasks = tasks
+                    }
+                    
+                    
+                }
+ 
             }.store(in: &cancellables)
         
     }
@@ -87,6 +148,21 @@ class TasklyViewModel : ObservableObject{
         
         self.fetchTasks()
     }
+    
+    func filterTasks(searchQuery: String = "") {
+        
+        self.tasksCrudService.filterTasks(searchQuery: searchQuery, isCompleted: self.isCompletedToggled, isInProgress: self.isInProgressToggled)
+        
+        if self.isAllToggled && searchQuery.isEmpty{
+            self.fetchTasks(isFilter: false)
+        }else{
+            self.fetchTasks(isFilter: true)
+        }
+        
+        
+    }
+    
+
     
     
     
