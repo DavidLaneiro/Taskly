@@ -28,9 +28,9 @@ class TasklyViewModel : ObservableObject{
     
     
     init(coreDataTasklyService: CoreDataTasklyService = CoreDataTasklyService()) {
-        self.tasksCrudService = coreDataTasklyService
-        self.setupSearchBarBinding()
-        self.setupToggleBindings()
+      self.tasksCrudService = coreDataTasklyService
+      self.setupSearchBarBinding()
+      self.setupToggleBindings()
         
     }
 
@@ -42,7 +42,6 @@ class TasklyViewModel : ObservableObject{
             } receiveValue: { [weak self] newQuery in
                 
                 // Filter results with newQuery
-                print("New query -> \(newQuery)")
                 self?.filterTasks(searchQuery: newQuery)
                 
             }.store(in: &cancellables)
@@ -51,16 +50,15 @@ class TasklyViewModel : ObservableObject{
     
     fileprivate func setupToggleBindings(){
         
-        let mergePublisher = Publishers.Merge($isCompletedToggled, $isInProgressToggled)
+        let mergedPublisher = Publishers.Merge($isCompletedToggled, $isInProgressToggled)
         
-        mergePublisher
+        mergedPublisher
             .receive(on: DispatchQueue.main)
             .sink{ _ in
-            } receiveValue: { [weak self] newValue in
+            } receiveValue: { [weak self] _ in
                 
                 self?.filterTasks()
-                
-                
+
             }.store(in: &cancellables)
     }
     
@@ -86,7 +84,7 @@ class TasklyViewModel : ObservableObject{
         
     }
     
-    func fetchTasks(isFilter: Bool = false){
+    func fetchTasks(){
         
         self.tasksCrudService.fetchTasks()
             .receive(on: DispatchQueue.main)
@@ -103,27 +101,26 @@ class TasklyViewModel : ObservableObject{
     
             } receiveValue: {  [weak self] tasks in
                 
-                if isFilter{
-                    
-                    self?.filteredTasks = tasks
-                    
-                }else{
+                // Note: When some type of filter is active always work
+                // with the filteredTasks and mantain the original tasks
+                // intact
                 
-                    
-                    if self?.isCompletedToggled ?? false || self?.isInProgressToggled ?? false{
-                        
+                if (self?.isCompletedToggled ?? false) || (self?.isInProgressToggled ?? false) || !(self?.searchBarQuery.isEmpty ?? true){
+                    withAnimation{
                         self?.filteredTasks = tasks
-                    }else{
+                    }
+                }else{
+                    withAnimation{
                         self?.tasks = tasks
                         self?.filteredTasks = tasks
                     }
-                    
-                    
                 }
  
             }.store(in: &cancellables)
         
     }
+    
+    // CRUD Operations
     
     func addTask(){
   
@@ -153,11 +150,7 @@ class TasklyViewModel : ObservableObject{
         
         self.tasksCrudService.filterTasks(searchQuery: searchQuery, isCompleted: self.isCompletedToggled, isInProgress: self.isInProgressToggled)
         
-        if self.isAllToggled && searchQuery.isEmpty{
-            self.fetchTasks(isFilter: false)
-        }else{
-            self.fetchTasks(isFilter: true)
-        }
+        self.fetchTasks()
         
         
     }

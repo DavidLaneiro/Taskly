@@ -43,10 +43,13 @@ struct TasklyList: View {
                             .font(.title3)
                             .bold()
                             .foregroundStyle(Color(hex: "FD9B63"))
+                            .strikethrough(task.isCompleted ? true : false)
+                            .animation(.interactiveSpring, value: task.isCompleted)
                     }
                 
-                }.padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
-                    .swipeActions{
+                }
+                .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
+                .swipeActions{
                         Button(role: .destructive){
                             
                             self.tasklyViewModel.removeTask(taskId: task.id)
@@ -57,8 +60,11 @@ struct TasklyList: View {
                             Label("Delete", systemImage: "trash")
                             
                         }
-                    }
-            }.listRowBackground(
+                }
+                .transition(.opacity)
+                    
+            }
+            .listRowBackground(
                 RoundedRectangle(cornerRadius: 20).foregroundStyle(Color(hex: "FEFFD2"))
             )
 
