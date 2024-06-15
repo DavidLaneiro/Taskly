@@ -44,9 +44,9 @@ struct TasklyFilter: View {
                         id: 2,
                         proxy: proxy
                     )
-                }
+                }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
             }
-            .padding(.horizontal, 20)
+            .padding(.horizontal, 0)
             .scrollIndicators(.hidden)
         }
     }

@@ -20,10 +20,17 @@ struct TasklyList: View {
                 Section {
                     ForEach(self.tasklyViewModel.filteredTasks){ task in
                         
-                        
-                        TasklyTaskListElement(task: task, tasklyViewModel: self.tasklyViewModel)
-                            .listRowBackground(Color(hex: "FEFFD2"))
-                        
+                            
+                        ZStack (alignment: .leading){
+                            NavigationLink(destination: TasklyEditTask(task: task, tasklyViewModel: self.tasklyViewModel)) {
+                                
+                                // Just to remove the chevron
+                                    
+                            }.opacity(0)
+                            
+                            TasklyTaskListElement(task: task, tasklyViewModel: self.tasklyViewModel)
+                        }.listRowBackground(Color(hex: "FEFFD2"))
+                            
                          
                         
                         
@@ -45,6 +52,8 @@ struct TasklyList: View {
             .scrollContentBackground(.hidden)
             .scrollIndicators(.hidden)
             .listRowSpacing(10)
+        
+        
         
     }
     

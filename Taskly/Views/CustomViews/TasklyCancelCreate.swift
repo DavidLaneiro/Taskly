@@ -44,7 +44,8 @@ struct TasklyCancelCreate: View {
                             .frame(height: 30)
                         
                     )
-            }
+            }.opacity(self.tasklyViewModel.taskContent.isEmpty ? 0.6 : 1)
+            .disabled(self.tasklyViewModel.taskContent.isEmpty)
         }
     }
 }

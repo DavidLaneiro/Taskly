@@ -84,6 +84,15 @@ class TasklyViewModel : ObservableObject{
         
     }
     
+    func updateTaskRowContent(task: Task){
+        
+        if let index = tasks.firstIndex(where: { $0.id == task.id }) {
+            tasks[index].title = self.taskContent
+            updateTask(updatedTask: tasks[index])
+        }
+        
+    }
+    
     func fetchTasks(){
         
         self.tasksCrudService.fetchTasks()
@@ -107,12 +116,17 @@ class TasklyViewModel : ObservableObject{
                 
                 if (self?.isCompletedToggled ?? false) || (self?.isInProgressToggled ?? false) || !(self?.searchBarQuery.isEmpty ?? true){
 
+                    withAnimation{
                         self?.filteredTasks = tasks
+                    }
 
                 }else{
 
+                    withAnimation{
                         self?.tasks = tasks
                         self?.filteredTasks = tasks
+                    }
+
 
                 }
  

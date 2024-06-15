@@ -63,6 +63,7 @@ struct TasklyTaskListElement: View {
             }
         }
         .transition(.opacity)
+
         
     }
 }
