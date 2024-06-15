@@ -15,10 +15,10 @@ struct TasklyEditTask: View {
     
     var body: some View {
         ZStack {
-            Color(hex: "FD9B63").ignoresSafeArea()
+            TasklyCustomColors.lighterOrange.ignoresSafeArea()
             
             ScrollView {
-                    TasklyCustomTextField(tasklyViewModel: self.tasklyViewModel)
+                    TasklyCustomTextField(tasklyViewModel: self.tasklyViewModel, isEdit: true)
             }
         }
         .onAppear( perform: {
@@ -34,15 +34,15 @@ struct TasklyEditTask: View {
                         dismiss()
                     }) {
                         Text("Cancel")
-                            .foregroundStyle(Color(hex: "FEFFD2"))
+                            .foregroundStyle(TasklyCustomColors.customYellow)
                             .frame(maxWidth: .infinity, alignment: .leading)
                     }.padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
                 }
             
                 ToolbarItem(placement: .principal){
 
-                    Text("Edit task")
-                        .foregroundStyle(Color(hex: "FEFFD2")).bold()
+                    Text("Your task")
+                        .foregroundStyle(TasklyCustomColors.customYellow).bold()
                         .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
  
                 }
@@ -50,7 +50,10 @@ struct TasklyEditTask: View {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button(action: {
                         // Add save functionality here
-                        if self.task.title != self.tasklyViewModel.taskContent{
+                        if StringUtils.trim(self.task.title) != self.tasklyViewModel.trimmedTaskContent{
+                            
+                            self.tasklyViewModel.taskContent = self.tasklyViewModel.trimmedTaskContent
+                            
                             self.tasklyViewModel.updateTaskRowContent(task: task)
                         }
                         
@@ -58,18 +61,18 @@ struct TasklyEditTask: View {
                         
                     }) {
                         Text("Save")
-                            .foregroundStyle(Color(hex: "FF7D29"))
+                            .foregroundStyle(TasklyCustomColors.darkerOrange)
                             .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                             .background(
                                 RoundedRectangle(cornerRadius: 30.0)
-                                    .fill(Color(hex: "FEFFD2"))
+                                    .fill(TasklyCustomColors.customYellow)
                                     .frame(height: 30)
                             )
-                            .opacity(self.tasklyViewModel.taskContent.isEmpty || self.task.title == self.tasklyViewModel.taskContent  ? 0.6 : 1.0)
+                            .opacity(self.tasklyViewModel.taskContent.isEmpty || self.task.title == self.tasklyViewModel.trimmedTaskContent  ? 0.6 : 1.0)
                     }.padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
-                        .disabled(self.tasklyViewModel.taskContent.isEmpty ? true : false)
+                        .disabled(self.tasklyViewModel.trimmedTaskContent.isEmpty ? true : false)
                 }
-        }
+        }.toolbarBackground(TasklyCustomColors.lighterOrange, for: .navigationBar)
     }
 }
 

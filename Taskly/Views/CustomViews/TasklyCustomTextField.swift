@@ -12,15 +12,21 @@ struct TasklyCustomTextField: View {
     
     @ObservedObject var tasklyViewModel: TasklyViewModel
     @FocusState private var isTextfieldFocused : Bool
+    var isEdit: Bool = false
+    
+    init(tasklyViewModel: TasklyViewModel, isEdit: Bool) {
+        self.tasklyViewModel = tasklyViewModel
+        self.isEdit = isEdit
+    }
     
     var body: some View {
         ZStack(alignment: .topLeading){
             RoundedRectangle(cornerRadius: 20.0)
-                .fill(Color(hex: "FEFFD2"))
+                .fill(TasklyCustomColors.customYellow)
                 .frame(height: 200)
             
             TextField("", text: $tasklyViewModel.taskContent, prompt: Text("Insert your task here")
-                .foregroundStyle(Color(hex: "FD9B63")
+                .foregroundStyle(TasklyCustomColors.lighterOrange
                     .opacity(0.5)
                 ), axis: .vertical)
             .padding(20)
@@ -28,17 +34,28 @@ struct TasklyCustomTextField: View {
             .focused(self.$isTextfieldFocused)
             .background(
                 RoundedRectangle(cornerRadius: 20.0)
-                    .fill(Color(hex: "FEFFD2"))
+                    .fill(TasklyCustomColors.customYellow)
                 
             )
-            .foregroundStyle(Color(hex: "FD9B63"))
+            .foregroundStyle(TasklyCustomColors.darkerOrange)
             .font(.system(size: 18, weight: .bold))
             
             
         }
+        .toolbar{
+            ToolbarItemGroup(placement: .keyboard){
+                Button("Done"){
+                    self.isTextfieldFocused = false
+                }
+                Spacer()
+                
+            }
+        }
         .onAppear(perform: {
             DispatchQueue.main.async {
-                isTextfieldFocused = true
+                if !isEdit{
+                    isTextfieldFocused = true
+                }
             }
         })
         .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))

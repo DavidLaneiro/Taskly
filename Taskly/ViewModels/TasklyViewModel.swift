@@ -15,8 +15,11 @@ class TasklyViewModel : ObservableObject{
     @Published var filteredTasks : [Task] = []
     
     @Published var searchBarQuery : String = ""
-    @Published var isSheetPresented : Bool = false
     @Published var taskContent : String = ""
+    
+    var trimmedTaskContent: String {
+        return taskContent.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
     
     @Published var isAllToggled : Bool = true
     @Published var isCompletedToggled : Bool = false
@@ -67,13 +70,7 @@ class TasklyViewModel : ObservableObject{
         self.searchBarQuery = ""
         
     }
-    
-    func toggleIsSheetPresented(){
-        
-        self.isSheetPresented.toggle()
-        
-    }
-    
+
     func toggleCompletion(task: Task){
         
         if let index = tasks.firstIndex(where: { $0.id == task.id }) {

@@ -20,7 +20,7 @@ struct TasklyLeftTitle: View {
         HStack{
             Text(title)
                 .font(.title.bold())
-                .foregroundStyle(Color(hex: "FEFFD2"))
+                .foregroundStyle(TasklyCustomColors.customYellow)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(EdgeInsets(top: 10, leading: 20, bottom: 0, trailing: 20))
         }

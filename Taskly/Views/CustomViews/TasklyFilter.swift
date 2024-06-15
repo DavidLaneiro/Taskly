@@ -19,36 +19,48 @@ struct TasklyFilter: View {
     @State private var selectedButtonType: ButtonType = .All
     
     var body: some View {
-        ScrollViewReader { proxy in
-            ScrollView(.horizontal) {
-                HStack(spacing: 10) {
-                    filterButton(
-                        title: "All",
-                        imageName: "list.bullet.clipboard",
-                        buttonType: .All,
-                        id: 1,
-                        proxy: proxy
-                    )
+        HStack {
+            ScrollViewReader { proxy in
+                ScrollView(.horizontal) {
+                    HStack(spacing: 10) {
+                        filterButton(
+                            title: "All",
+                            imageName: "list.bullet.clipboard",
+                            buttonType: .All,
+                            id: 1,
+                            proxy: proxy
+                        )
 
-                    filterButton(
-                        title: "In progress",
-                        imageName: "rays",
-                        buttonType: .InProgress,
-                        id: 3,
-                        proxy: proxy
-                    )
-                    filterButton(
-                        title: "Done",
-                        imageName: "checkmark",
-                        buttonType: .Completed,
-                        id: 2,
-                        proxy: proxy
-                    )
-                }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
+                        filterButton(
+                            title: "In progress",
+                            imageName: "rays",
+                            buttonType: .InProgress,
+                            id: 3,
+                            proxy: proxy
+                        )
+                        filterButton(
+                            title: "Done",
+                            imageName: "checkmark",
+                            buttonType: .Completed,
+                            id: 2,
+                            proxy: proxy
+                        )
+                        
+                    }.padding(.leading, 20)
+                }
+                .padding(.horizontal, 0)
+                .scrollIndicators(.hidden)
             }
-            .padding(.horizontal, 0)
-            .scrollIndicators(.hidden)
+            Button(action:{
+                
+            }){
+                Image(systemName: "plus.square")
+                    .resizable()
+                    .frame(width: 22, height: 22)
+                    .foregroundStyle(TasklyCustomColors.customYellow)
+            }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 20))
         }
+        
     }
     
     private func filterButton(title: String, imageName: String, buttonType: ButtonType, id: Int, proxy: ScrollViewProxy) -> some View {

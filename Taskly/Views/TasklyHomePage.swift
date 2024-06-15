@@ -13,7 +13,7 @@ struct TasklyHomePage: View {
     
     var body: some View {
         ZStack {
-            Color(hex: "FD9B63").ignoresSafeArea()
+            TasklyCustomColors.lighterOrange.ignoresSafeArea()
             
             VStack(spacing: -10) {
                 // Logo section
@@ -36,7 +36,7 @@ struct TasklyHomePage: View {
     
     @ViewBuilder
     private func content() -> some View {
-        if tasklyViewModel.tasks.isEmpty {
+        if tasklyViewModel.tasks.isEmpty && tasklyViewModel.isAllToggled {
             noTasksView(
                 upperImageName: "note.text.badge.plus",
                 largerText: "No tasks yet",

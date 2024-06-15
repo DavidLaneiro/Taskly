@@ -33,21 +33,21 @@ struct TasklyNoTasks: View {
                 Image(systemName: upperImageName)
                     .resizable()
                     .frame(width: 35, height: 35)
-                    .foregroundStyle(Color(hex: "FEFFD2"))
+                    .foregroundStyle(TasklyCustomColors.customYellow)
                     .opacity(0.8)
 
                 Text(largerText)
                     .font(.largeTitle.bold())
-                    .foregroundStyle(Color(hex: "FEFFD2"))
+                    .foregroundStyle(TasklyCustomColors.customYellow)
                     .opacity(0.8)
                 
                 Text(shorterText)
                     .font(.footnote.bold())
-                    .foregroundStyle(Color(hex: "FEFFD2"))
+                    .foregroundStyle(TasklyCustomColors.customYellow)
                     .opacity(0.8)
             }
             .padding()
-        }
+        }.disabled(!self.tapEnabled)
     }
 }
 

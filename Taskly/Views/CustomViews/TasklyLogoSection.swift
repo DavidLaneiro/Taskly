@@ -22,7 +22,7 @@ struct TasklyLogoSection: View {
             NavigationLink(destination: TasklyCreateTask(tasklyViewModel: tasklyViewModel)) {
                 Image(systemName: "plus.circle.fill")
                     .resizable()
-                    .foregroundStyle(Color(hex: "FEFFD2"))
+                    .foregroundStyle(TasklyCustomColors.customYellow)
                     .frame(width: 32, height: 32)
                     .padding(20)
             }

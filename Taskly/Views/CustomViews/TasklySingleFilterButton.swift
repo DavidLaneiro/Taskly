@@ -28,15 +28,15 @@ struct TasklySingleFilterButton: View {
             HStack{
                 
                 Image(systemName: buttonImageName)
-                    .foregroundStyle(Color(hex: self.isSelected ? "FEFFD2" : "FF7D29"))
+                    .foregroundStyle(self.isSelected ? TasklyCustomColors.customYellow : TasklyCustomColors.darkerOrange)
                 Text(buttonTitle)
-                    .foregroundStyle(Color(hex: self.isSelected ? "FEFFD2" : "FF7D29"))
+                    .foregroundStyle(self.isSelected ? TasklyCustomColors.customYellow : TasklyCustomColors.darkerOrange)
                 
             }
             .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
             .background(
                 RoundedRectangle(cornerRadius: 30.0)
-                    .fill(Color(hex: self.isSelected ? "FF7D29" : "FEFFD2"))
+                    .fill(self.isSelected ? TasklyCustomColors.darkerOrange : TasklyCustomColors.customYellow)
                 
                 
             )

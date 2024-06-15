@@ -13,11 +13,11 @@ struct TasklyLogo: View {
         HStack{
             Image(systemName: "list.bullet")
                 .resizable()
-                .foregroundStyle(Color(hex: "FEFFD2"))
+                .foregroundStyle(TasklyCustomColors.customYellow)
                 .frame(width: 35, height: 25)
             Text("Taskly")
                 .font(.largeTitle.bold())
-                .foregroundStyle(Color(hex: "FEFFD2"))
+                .foregroundStyle(TasklyCustomColors.customYellow)
         }
     }
 }

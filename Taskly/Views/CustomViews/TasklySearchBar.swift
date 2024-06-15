@@ -15,12 +15,12 @@ struct TasklySearchBar: View {
     var body: some View {
         HStack{
             Image(systemName: "magnifyingglass")
-                .foregroundStyle(Color(hex: "FF7D29")).padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 0))
+                .foregroundStyle(TasklyCustomColors.darkerOrange).padding(EdgeInsets(top: 20, leading: 20, bottom: 20, trailing: 0))
             
-            TextField("", text: self.$tasklyViewModel.searchBarQuery, prompt: Text("Search for your task").foregroundStyle(Color(hex: "FF7D29").opacity(0.5)))
+            TextField("", text: self.$tasklyViewModel.searchBarQuery, prompt: Text("Search for your task").foregroundStyle(TasklyCustomColors.darkerOrange.opacity(0.5)))
                 .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 0))
                 .textFieldStyle(.plain)
-                .foregroundStyle(Color(hex: "FF7D29"))
+                .foregroundStyle(TasklyCustomColors.darkerOrange)
                 
             if !tasklyViewModel.searchBarQuery.isEmpty{
                 Button(action:{
@@ -29,7 +29,7 @@ struct TasklySearchBar: View {
                     
                 }){
                     Image(systemName: "xmark")
-                        .foregroundStyle(Color(hex: "FF7D29"))
+                        .foregroundStyle(TasklyCustomColors.darkerOrange)
                         .padding(EdgeInsets(top: 20, leading: 0, bottom: 20, trailing: 20))
                 }
             }
@@ -38,7 +38,7 @@ struct TasklySearchBar: View {
         .padding(EdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20))
         .background(
             RoundedRectangle(cornerRadius: 30.0)
-                .fill(Color(hex: "FEFFD2"))
+                .fill(TasklyCustomColors.customYellow)
                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 .frame(height: 50)
             

@@ -11,6 +11,8 @@
 		120B99D62C1B31BF0018C012 /* TasklyTaskListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99D52C1B31BF0018C012 /* TasklyTaskListElement.swift */; };
 		120B99D82C1D08730018C012 /* TasklyEditTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99D72C1D08730018C012 /* TasklyEditTask.swift */; };
 		120B99DA2C1E11F80018C012 /* TasklyCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99D92C1E11F80018C012 /* TasklyCustomTextField.swift */; };
+		120B99DD2C1E36380018C012 /* TasklyCustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99DC2C1E36380018C012 /* TasklyCustomColors.swift */; };
+		120B99E02C1E5B9A0018C012 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99DF2C1E5B9A0018C012 /* StringUtils.swift */; };
 		1225601C2C150D70007D72A6 /* TasklyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1225601B2C150D70007D72A6 /* TasklyApp.swift */; };
 		122560202C150D71007D72A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1225601F2C150D71007D72A6 /* Assets.xcassets */; };
 		122560232C150D71007D72A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 122560222C150D71007D72A6 /* Preview Assets.xcassets */; };
@@ -25,7 +27,6 @@
 		122560412C165FAD007D72A6 /* TasklyLeftTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560402C165FAD007D72A6 /* TasklyLeftTitle.swift */; };
 		122560432C166C6D007D72A6 /* TasklyCreateTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560422C166C6D007D72A6 /* TasklyCreateTask.swift */; };
 		122560452C166CE5007D72A6 /* TasklyNoTasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560442C166CE5007D72A6 /* TasklyNoTasks.swift */; };
-		122560492C188A19007D72A6 /* TasklyCancelCreate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560482C188A19007D72A6 /* TasklyCancelCreate.swift */; };
 		122560502C18DEF4007D72A6 /* TasklyTasksModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1225604E2C18DEF4007D72A6 /* TasklyTasksModel.xcdatamodeld */; };
 		122560532C18E06A007D72A6 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560522C18E06A007D72A6 /* PersistenceController.swift */; };
 		122560552C18E194007D72A6 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122560542C18E194007D72A6 /* Task.swift */; };
@@ -37,6 +38,8 @@
 		120B99D52C1B31BF0018C012 /* TasklyTaskListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyTaskListElement.swift; sourceTree = "<group>"; };
 		120B99D72C1D08730018C012 /* TasklyEditTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyEditTask.swift; sourceTree = "<group>"; };
 		120B99D92C1E11F80018C012 /* TasklyCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyCustomTextField.swift; sourceTree = "<group>"; };
+		120B99DC2C1E36380018C012 /* TasklyCustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyCustomColors.swift; sourceTree = "<group>"; };
+		120B99DF2C1E5B9A0018C012 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		122560182C150D70007D72A6 /* Taskly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taskly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1225601B2C150D70007D72A6 /* TasklyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyApp.swift; sourceTree = "<group>"; };
 		1225601F2C150D71007D72A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -52,7 +55,6 @@
 		122560402C165FAD007D72A6 /* TasklyLeftTitle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyLeftTitle.swift; sourceTree = "<group>"; };
 		122560422C166C6D007D72A6 /* TasklyCreateTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyCreateTask.swift; sourceTree = "<group>"; };
 		122560442C166CE5007D72A6 /* TasklyNoTasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyNoTasks.swift; sourceTree = "<group>"; };
-		122560482C188A19007D72A6 /* TasklyCancelCreate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyCancelCreate.swift; sourceTree = "<group>"; };
 		1225604F2C18DEF4007D72A6 /* TasklyTasksModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TasklyTasksModel.xcdatamodel; sourceTree = "<group>"; };
 		122560522C18E06A007D72A6 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		122560542C18E194007D72A6 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
@@ -70,6 +72,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		120B99DB2C1E36200018C012 /* TasklyConstants */ = {
+			isa = PBXGroup;
+			children = (
+				120B99DC2C1E36380018C012 /* TasklyCustomColors.swift */,
+			);
+			path = TasklyConstants;
+			sourceTree = "<group>";
+		};
+		120B99DE2C1E5B8F0018C012 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				120B99DF2C1E5B9A0018C012 /* StringUtils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		1225600F2C150D70007D72A6 = {
 			isa = PBXGroup;
 			children = (
@@ -146,7 +164,6 @@
 				1225603E2C165928007D72A6 /* TasklySingleFilterButton.swift */,
 				122560402C165FAD007D72A6 /* TasklyLeftTitle.swift */,
 				122560442C166CE5007D72A6 /* TasklyNoTasks.swift */,
-				122560482C188A19007D72A6 /* TasklyCancelCreate.swift */,
 				120B99CE2C1917B80018C012 /* TasklyList.swift */,
 				120B99D52C1B31BF0018C012 /* TasklyTaskListElement.swift */,
 				120B99D92C1E11F80018C012 /* TasklyCustomTextField.swift */,
@@ -157,6 +174,8 @@
 		1225604C2C18DED0007D72A6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				120B99DE2C1E5B8F0018C012 /* Utils */,
+				120B99DB2C1E36200018C012 /* TasklyConstants */,
 				122560542C18E194007D72A6 /* Task.swift */,
 			);
 			path = Models;
@@ -254,14 +273,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				120B99DD2C1E36380018C012 /* TasklyCustomColors.swift in Sources */,
 				122560502C18DEF4007D72A6 /* TasklyTasksModel.xcdatamodeld in Sources */,
-				122560492C188A19007D72A6 /* TasklyCancelCreate.swift in Sources */,
 				122560372C15281F007D72A6 /* TasklySearchBar.swift in Sources */,
 				122560452C166CE5007D72A6 /* TasklyNoTasks.swift in Sources */,
 				122560352C1512CB007D72A6 /* TasklyLogo.swift in Sources */,
 				122560392C1647C6007D72A6 /* TasklyViewModel.swift in Sources */,
 				1225603D2C16572F007D72A6 /* TasklyFilter.swift in Sources */,
 				120B99DA2C1E11F80018C012 /* TasklyCustomTextField.swift in Sources */,
+				120B99E02C1E5B9A0018C012 /* StringUtils.swift in Sources */,
 				1225603F2C165928007D72A6 /* TasklySingleFilterButton.swift in Sources */,
 				120B99D82C1D08730018C012 /* TasklyEditTask.swift in Sources */,
 				122560432C166C6D007D72A6 /* TasklyCreateTask.swift in Sources */,
