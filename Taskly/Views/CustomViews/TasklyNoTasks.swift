@@ -27,38 +27,27 @@ struct TasklyNoTasks: View {
     }
     
     var body: some View {
-        
-        VStack{
-            
-            Image(systemName: upperImageName)
-                .resizable()
-                .frame(width: 35, height: 35)
-                .foregroundStyle(Color(hex: "FEFFD2"))
-                .opacity(0.8)
-            
-            
-            
-            Text(largerText)
-                .font(.largeTitle.bold())
-                .foregroundStyle(Color(hex: "FEFFD2"))
-                .opacity(0.8)
-            
-            Text(shorterText)
-                .font(.footnote.bold())
-                .foregroundStyle(Color(hex: "FEFFD2"))
-                .opacity(0.8)
-        }
-        .padding()
-        .onTapGesture {
-            if tapEnabled{
-                self.tasklyViewModel.toggleIsSheetPresented()
-                self.tasklyViewModel.taskContent = ""
-            }
+        NavigationLink(destination: TasklyCreateTask(tasklyViewModel: tasklyViewModel)){
+            VStack{
+                
+                Image(systemName: upperImageName)
+                    .resizable()
+                    .frame(width: 35, height: 35)
+                    .foregroundStyle(Color(hex: "FEFFD2"))
+                    .opacity(0.8)
 
+                Text(largerText)
+                    .font(.largeTitle.bold())
+                    .foregroundStyle(Color(hex: "FEFFD2"))
+                    .opacity(0.8)
+                
+                Text(shorterText)
+                    .font(.footnote.bold())
+                    .foregroundStyle(Color(hex: "FEFFD2"))
+                    .opacity(0.8)
+            }
+            .padding()
         }
-        .fullScreenCover(isPresented: self.$tasklyViewModel.isSheetPresented, content: {
-            TasklyCreateTask(tasklyViewModel: self.tasklyViewModel)
-        })
     }
 }
 

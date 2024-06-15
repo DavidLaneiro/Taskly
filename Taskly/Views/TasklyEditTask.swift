@@ -12,31 +12,18 @@ struct TasklyEditTask: View {
     let task : Task
     @Environment(\.dismiss) private var dismiss
     @ObservedObject var tasklyViewModel: TasklyViewModel
-    @FocusState private var isTextfieldFocused : Bool
     
     var body: some View {
         ZStack {
             Color(hex: "FD9B63").ignoresSafeArea()
             
             ScrollView {
-                VStack(spacing: 20) {
-
-                    TextField("", text: $tasklyViewModel.taskContent, prompt: Text("Edit your task here").foregroundStyle(Color(hex: "FEFFD2").opacity(0.5)), axis: .vertical)
-                        .textFieldStyle(.plain)
-                        .foregroundStyle(Color(hex: "FEFFD2"))
-                        .focused(self.$isTextfieldFocused)
-                }
-                .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))
+                    TasklyCustomTextField(tasklyViewModel: self.tasklyViewModel)
             }
-        }.onAppear( perform: {
+        }
+        .onAppear( perform: {
             DispatchQueue.main.async{
                 self.tasklyViewModel.taskContent = task.title
-                isTextfieldFocused = true
-            }
-        })
-        .onTapGesture(perform: {
-            DispatchQueue.main.async{
-                self.isTextfieldFocused = false
             }
         })
         .navigationBarBackButtonHidden(true)
@@ -85,3 +72,9 @@ struct TasklyEditTask: View {
         }
     }
 }
+
+
+#Preview {
+    TasklyHomePage()
+}
+
