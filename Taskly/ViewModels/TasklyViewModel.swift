@@ -36,11 +36,7 @@ class TasklyViewModel : ObservableObject{
       self.setupToggleBindings()
         
     }
-    
-    // Move it after
-    func hideKeyboard() {
-        UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
-    }
+
 
     fileprivate func setupSearchBarBinding(){
         
