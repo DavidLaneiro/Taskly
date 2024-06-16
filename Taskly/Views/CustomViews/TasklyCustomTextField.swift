@@ -51,6 +51,11 @@ struct TasklyCustomTextField: View {
                 
             }
         }
+        .onTapGesture {
+            if !isTextfieldFocused{
+                self.isTextfieldFocused = true
+            }
+        }
         .onAppear(perform: {
             DispatchQueue.main.async {
                 if !isEdit{
@@ -60,4 +65,5 @@ struct TasklyCustomTextField: View {
         })
         .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))
     }
+    
 }
