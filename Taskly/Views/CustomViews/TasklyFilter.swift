@@ -46,19 +46,12 @@ struct TasklyFilter: View {
                             proxy: proxy
                         )
                         
-                    }.padding(.leading, 20)
+                    }
                 }
-                .padding(.horizontal, 0)
+                .padding(.horizontal, 20)
                 .scrollIndicators(.hidden)
             }
-            Button(action:{
-                
-            }){
-                Image(systemName: "plus.square")
-                    .resizable()
-                    .frame(width: 22, height: 22)
-                    .foregroundStyle(TasklyCustomColors.customYellow)
-            }.padding(EdgeInsets(top: 0, leading: 10, bottom: 0, trailing: 20))
+
         }
         
     }

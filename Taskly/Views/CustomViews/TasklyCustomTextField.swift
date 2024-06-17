@@ -20,27 +20,17 @@ struct TasklyCustomTextField: View {
     }
     
     var body: some View {
+        
         ZStack(alignment: .topLeading){
-            RoundedRectangle(cornerRadius: 20.0)
-                .fill(TasklyCustomColors.customYellow)
-                .frame(height: 200)
             
             TextField("", text: $tasklyViewModel.taskContent, prompt: Text("Insert your task here")
                 .foregroundStyle(TasklyCustomColors.lighterOrange
                     .opacity(0.5)
                 ), axis: .vertical)
-            .padding(20)
-            .textFieldStyle(.plain)
+            .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
             .focused(self.$isTextfieldFocused)
-            .background(
-                RoundedRectangle(cornerRadius: 20.0)
-                    .fill(TasklyCustomColors.customYellow)
-                
-            )
             .foregroundStyle(TasklyCustomColors.darkerOrange)
-            .font(.system(size: 18, weight: .bold))
-            
-            
+            .font(.system(size: 16, weight: .bold)) 
         }
         .toolbar{
             ToolbarItemGroup(placement: .keyboard){
@@ -63,7 +53,10 @@ struct TasklyCustomTextField: View {
                 }
             }
         })
-        .padding(EdgeInsets(top: 0, leading: 20, bottom: 20, trailing: 20))
     }
     
+}
+
+#Preview {
+    TasklyCreateTask(tasklyViewModel: TasklyViewModel())
 }

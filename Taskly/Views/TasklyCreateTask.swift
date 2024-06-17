@@ -2,7 +2,7 @@
 //  TasklyCreateTask.swift
 //  Taskly
 //
-//  Created by David  Lourenço on 10/06/2024.
+//  Created by David Lourenço on 10/06/2024.
 //
 
 import SwiftUI
@@ -15,19 +15,27 @@ struct TasklyCreateTask: View {
     var body: some View {
         ZStack {
             TasklyCustomColors.lighterOrange.ignoresSafeArea()
-            
-            ScrollView {
-                TasklyCustomTextField(tasklyViewModel: self.tasklyViewModel, isEdit: false)
-            }
-            
+        
+            TasklyAddEditList(tasklyViewModel: self.tasklyViewModel, isEdit: false)
+                .scrollContentBackground(.hidden)
+                .scrollIndicators(.hidden)
+                .listRowSpacing(10)
         }
-        .onAppear( perform: {
-            DispatchQueue.main.async{
-                tasklyViewModel.taskContent = ""
+        .gesture(
+            DragGesture().onEnded { value in
+                if value.translation.width > 100 {
+                    dismiss()
+                }
             }
-        })
+        )
+        .onAppear {
+            DispatchQueue.main.async {
+                tasklyViewModel.taskContent = ""
+                tasklyViewModel.toggleState = false
+            }
+        }
         .navigationBarBackButtonHidden(true)
-        .toolbar{
+        .toolbar {
             ToolbarItem(placement: .topBarLeading) {
                 Button(action: {
                     dismiss()
@@ -35,15 +43,15 @@ struct TasklyCreateTask: View {
                     Text("Cancel")
                         .foregroundStyle(TasklyCustomColors.customYellow)
                         .frame(maxWidth: .infinity, alignment: .leading)
-                }.padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+                }
+                .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
             }
-        
-            ToolbarItem(placement: .principal){
-
+            
+            ToolbarItem(placement: .principal) {
                 Text("Add task")
-                    .foregroundStyle(TasklyCustomColors.customYellow).bold()
+                    .foregroundStyle(TasklyCustomColors.customYellow)
+                    .bold()
                     .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
-
             }
             
             ToolbarItem(placement: .topBarTrailing) {
@@ -53,7 +61,6 @@ struct TasklyCreateTask: View {
                     self.tasklyViewModel.addTask()
                     
                     dismiss()
-                    
                 }) {
                     Text("Create")
                         .foregroundStyle(TasklyCustomColors.darkerOrange)
@@ -64,15 +71,15 @@ struct TasklyCreateTask: View {
                                 .frame(height: 30)
                         )
                         .opacity(self.tasklyViewModel.trimmedTaskContent.isEmpty ? 0.6 : 1.0)
-                }.padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
-                    .disabled(self.tasklyViewModel.trimmedTaskContent.isEmpty ? true : false)
+                }
+                .padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
+                .disabled(self.tasklyViewModel.trimmedTaskContent.isEmpty)
             }
-            
-        }.toolbarBackground(TasklyCustomColors.lighterOrange, for: .navigationBar)
+        }
+        .toolbarBackground(TasklyCustomColors.lighterOrange, for: .navigationBar)
     }
 }
 
 #Preview {
-    TasklyHomePage()
+    TasklyCreateTask(tasklyViewModel: TasklyViewModel())
 }
-

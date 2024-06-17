@@ -16,14 +16,17 @@ class TasklyViewModel : ObservableObject{
     
     @Published var searchBarQuery : String = ""
     @Published var taskContent : String = ""
-    
-    var trimmedTaskContent: String {
-        return taskContent.trimmingCharacters(in: .whitespacesAndNewlines)
-    }
+
     
     @Published var isAllToggled : Bool = true
     @Published var isCompletedToggled : Bool = false
     @Published var isInProgressToggled : Bool = false
+    
+    @Published var toggleState : Bool = false
+    
+    var trimmedTaskContent: String {
+        return taskContent.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
     
     let tasksCrudService : CoreDataTasklyService
     
@@ -82,14 +85,6 @@ class TasklyViewModel : ObservableObject{
         
     }
     
-    func updateTaskRowContent(task: Task){
-        
-        if let index = tasks.firstIndex(where: { $0.id == task.id }) {
-            tasks[index].title = self.taskContent
-            updateTask(updatedTask: tasks[index])
-        }
-        
-    }
     
     func fetchTasks(){
         
@@ -148,6 +143,15 @@ class TasklyViewModel : ObservableObject{
         
         self.fetchTasks()
         
+        
+    }
+    
+    func updateTaskRowContent(task: Task){
+        
+        if let index = tasks.firstIndex(where: { $0.id == task.id }) {
+            tasks[index].title = self.taskContent
+            updateTask(updatedTask: tasks[index])
+        }
         
     }
     

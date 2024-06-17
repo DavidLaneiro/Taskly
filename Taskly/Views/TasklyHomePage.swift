@@ -72,7 +72,6 @@ struct TasklyHomePage: View {
     @ViewBuilder
     private func tasksView() -> some View {
         VStack(spacing: 20) {
-            // TasklyLeftTitle(title: "Tasks")
             TasklyList(tasklyViewModel: self.tasklyViewModel)
         }
     }

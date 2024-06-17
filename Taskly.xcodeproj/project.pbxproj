@@ -13,6 +13,7 @@
 		120B99DA2C1E11F80018C012 /* TasklyCustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99D92C1E11F80018C012 /* TasklyCustomTextField.swift */; };
 		120B99DD2C1E36380018C012 /* TasklyCustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99DC2C1E36380018C012 /* TasklyCustomColors.swift */; };
 		120B99E02C1E5B9A0018C012 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99DF2C1E5B9A0018C012 /* StringUtils.swift */; };
+		120B99E22C207E140018C012 /* TasklyAddEditList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99E12C207E140018C012 /* TasklyAddEditList.swift */; };
 		1225601C2C150D70007D72A6 /* TasklyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1225601B2C150D70007D72A6 /* TasklyApp.swift */; };
 		122560202C150D71007D72A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1225601F2C150D71007D72A6 /* Assets.xcassets */; };
 		122560232C150D71007D72A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 122560222C150D71007D72A6 /* Preview Assets.xcassets */; };
@@ -40,6 +41,7 @@
 		120B99D92C1E11F80018C012 /* TasklyCustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyCustomTextField.swift; sourceTree = "<group>"; };
 		120B99DC2C1E36380018C012 /* TasklyCustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyCustomColors.swift; sourceTree = "<group>"; };
 		120B99DF2C1E5B9A0018C012 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		120B99E12C207E140018C012 /* TasklyAddEditList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyAddEditList.swift; sourceTree = "<group>"; };
 		122560182C150D70007D72A6 /* Taskly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taskly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1225601B2C150D70007D72A6 /* TasklyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyApp.swift; sourceTree = "<group>"; };
 		1225601F2C150D71007D72A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				120B99CE2C1917B80018C012 /* TasklyList.swift */,
 				120B99D52C1B31BF0018C012 /* TasklyTaskListElement.swift */,
 				120B99D92C1E11F80018C012 /* TasklyCustomTextField.swift */,
+				120B99E12C207E140018C012 /* TasklyAddEditList.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				122560432C166C6D007D72A6 /* TasklyCreateTask.swift in Sources */,
 				122560412C165FAD007D72A6 /* TasklyLeftTitle.swift in Sources */,
 				1225602F2C150DD3007D72A6 /* TasklyHomePage.swift in Sources */,
+				120B99E22C207E140018C012 /* TasklyAddEditList.swift in Sources */,
 				120B99CF2C1917B80018C012 /* TasklyList.swift in Sources */,
 				122560322C150F13007D72A6 /* Color+Extension.swift in Sources */,
 				1225603B2C16540B007D72A6 /* TasklyLogoSection.swift in Sources */,

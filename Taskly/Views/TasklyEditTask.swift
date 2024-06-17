@@ -17,15 +17,24 @@ struct TasklyEditTask: View {
         ZStack {
             TasklyCustomColors.lighterOrange.ignoresSafeArea()
             
-            ScrollView {
-                    TasklyCustomTextField(tasklyViewModel: self.tasklyViewModel, isEdit: true)
-            }
+            TasklyAddEditList(tasklyViewModel: self.tasklyViewModel, isEdit: true)
+                .scrollContentBackground(.hidden)
+                .scrollIndicators(.hidden)
+                .listRowSpacing(10)     
         }
         .onAppear( perform: {
             DispatchQueue.main.async{
                 self.tasklyViewModel.taskContent = task.title
+                self.tasklyViewModel.toggleState = task.isCompleted
             }
         })
+        .gesture(
+            DragGesture().onEnded { value in
+                if value.translation.width > 100 {
+                    dismiss()
+                }
+            }
+        )
         .navigationBarBackButtonHidden(true)
         .toolbar {
         
@@ -70,14 +79,12 @@ struct TasklyEditTask: View {
                             )
                             .opacity(self.tasklyViewModel.taskContent.isEmpty || self.task.title == self.tasklyViewModel.trimmedTaskContent  ? 0.6 : 1.0)
                     }.padding(EdgeInsets(top: 0, leading: 5, bottom: 0, trailing: 5))
-                        .disabled(self.tasklyViewModel.trimmedTaskContent.isEmpty ? true : false)
+                        .disabled(self.tasklyViewModel.trimmedTaskContent.isEmpty || self.task.title == self.tasklyViewModel.trimmedTaskContent ? true : false)
                 }
         }.toolbarBackground(TasklyCustomColors.lighterOrange, for: .navigationBar)
     }
 }
 
 
-#Preview {
-    TasklyHomePage()
-}
+
 

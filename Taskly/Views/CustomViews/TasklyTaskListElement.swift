@@ -40,7 +40,7 @@ struct TasklyTaskListElement: View {
                 
                 Text("\(task.title)")
                     .lineLimit(1)
-                    .font(.title3)
+                    .font(.system(size: 16))
                     .bold()
                     .foregroundStyle(TasklyCustomColors.darkerOrange)
                     .strikethrough(task.isCompleted ? true : false)

@@ -10,8 +10,8 @@ import SwiftUI
 
 struct TasklyCustomColors{
     
-    static let darkerOrange = Color(hex: "FF7D29")
-    static let lighterOrange = Color(hex: "FFBF78")
-    static let customYellow = Color(hex: "FEFFD2")
+    static let darkerOrange = Color(hex: "55AD9B")
+    static let lighterOrange = Color(hex: "95D2B3")
+    static let customYellow = Color(hex: "F1F8E8")
     
 }

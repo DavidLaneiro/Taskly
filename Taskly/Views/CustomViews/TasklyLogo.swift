@@ -11,12 +11,12 @@ import SwiftUI
 struct TasklyLogo: View {
     var body: some View {
         HStack{
-            Image(systemName: "list.bullet")
+            Image(systemName: "text.justifyleft")
                 .resizable()
                 .foregroundStyle(TasklyCustomColors.customYellow)
-                .frame(width: 35, height: 25)
+                .frame(width: 20, height: 20)
             Text("Taskly")
-                .font(.largeTitle.bold())
+                .font(.title.bold())
                 .foregroundStyle(TasklyCustomColors.customYellow)
         }
     }
