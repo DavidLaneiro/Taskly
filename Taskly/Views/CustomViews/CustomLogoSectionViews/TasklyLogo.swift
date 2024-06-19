@@ -13,11 +13,11 @@ struct TasklyLogo: View {
         HStack{
             Image(systemName: "text.justifyleft")
                 .resizable()
-                .foregroundStyle(TasklyCustomColors.customYellow)
+                .foregroundStyle(TasklyCustomColors.customTextColor)
                 .frame(width: 20, height: 20)
             Text("Taskly")
                 .font(.title.bold())
-                .foregroundStyle(TasklyCustomColors.customYellow)
+                .foregroundStyle(TasklyCustomColors.customTextColor)
         }
     }
 }

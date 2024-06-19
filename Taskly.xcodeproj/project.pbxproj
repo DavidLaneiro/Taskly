@@ -14,6 +14,8 @@
 		120B99DD2C1E36380018C012 /* TasklyCustomColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99DC2C1E36380018C012 /* TasklyCustomColors.swift */; };
 		120B99E02C1E5B9A0018C012 /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99DF2C1E5B9A0018C012 /* StringUtils.swift */; };
 		120B99E22C207E140018C012 /* TasklyAddEditList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120B99E12C207E140018C012 /* TasklyAddEditList.swift */; };
+		121C98E92C2385CD003BE2C2 /* TasklyGroupList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121C98E82C2385CD003BE2C2 /* TasklyGroupList.swift */; };
+		121C98EB2C2386E6003BE2C2 /* TasklyGroupListElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121C98EA2C2386E6003BE2C2 /* TasklyGroupListElement.swift */; };
 		1225601C2C150D70007D72A6 /* TasklyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1225601B2C150D70007D72A6 /* TasklyApp.swift */; };
 		122560202C150D71007D72A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1225601F2C150D71007D72A6 /* Assets.xcassets */; };
 		122560232C150D71007D72A6 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 122560222C150D71007D72A6 /* Preview Assets.xcassets */; };
@@ -42,6 +44,8 @@
 		120B99DC2C1E36380018C012 /* TasklyCustomColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyCustomColors.swift; sourceTree = "<group>"; };
 		120B99DF2C1E5B9A0018C012 /* StringUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		120B99E12C207E140018C012 /* TasklyAddEditList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyAddEditList.swift; sourceTree = "<group>"; };
+		121C98E82C2385CD003BE2C2 /* TasklyGroupList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyGroupList.swift; sourceTree = "<group>"; };
+		121C98EA2C2386E6003BE2C2 /* TasklyGroupListElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyGroupListElement.swift; sourceTree = "<group>"; };
 		122560182C150D70007D72A6 /* Taskly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Taskly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1225601B2C150D70007D72A6 /* TasklyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasklyApp.swift; sourceTree = "<group>"; };
 		1225601F2C150D71007D72A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -88,6 +92,58 @@
 				120B99DF2C1E5B9A0018C012 /* StringUtils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		121C98EC2C238734003BE2C2 /* CustomGroupViews */ = {
+			isa = PBXGroup;
+			children = (
+				121C98E82C2385CD003BE2C2 /* TasklyGroupList.swift */,
+				121C98EA2C2386E6003BE2C2 /* TasklyGroupListElement.swift */,
+			);
+			path = CustomGroupViews;
+			sourceTree = "<group>";
+		};
+		121C98ED2C238750003BE2C2 /* CustomTasksViews */ = {
+			isa = PBXGroup;
+			children = (
+				121C98F12C2387FB003BE2C2 /* CustomTasksFilters */,
+				120B99CE2C1917B80018C012 /* TasklyList.swift */,
+				120B99D52C1B31BF0018C012 /* TasklyTaskListElement.swift */,
+				122560442C166CE5007D72A6 /* TasklyNoTasks.swift */,
+				120B99E12C207E140018C012 /* TasklyAddEditList.swift */,
+				120B99D92C1E11F80018C012 /* TasklyCustomTextField.swift */,
+			);
+			path = CustomTasksViews;
+			sourceTree = "<group>";
+		};
+		121C98EF2C2387AC003BE2C2 /* CustomLogoSectionViews */ = {
+			isa = PBXGroup;
+			children = (
+				1225603A2C16540B007D72A6 /* TasklyLogoSection.swift */,
+				122560402C165FAD007D72A6 /* TasklyLeftTitle.swift */,
+				122560342C1512CB007D72A6 /* TasklyLogo.swift */,
+				122560362C15281F007D72A6 /* TasklySearchBar.swift */,
+			);
+			path = CustomLogoSectionViews;
+			sourceTree = "<group>";
+		};
+		121C98F12C2387FB003BE2C2 /* CustomTasksFilters */ = {
+			isa = PBXGroup;
+			children = (
+				1225603C2C16572F007D72A6 /* TasklyFilter.swift */,
+				1225603E2C165928007D72A6 /* TasklySingleFilterButton.swift */,
+			);
+			path = CustomTasksFilters;
+			sourceTree = "<group>";
+		};
+		121C98F22C238830003BE2C2 /* MainViews */ = {
+			isa = PBXGroup;
+			children = (
+				122560422C166C6D007D72A6 /* TasklyCreateTask.swift */,
+				120B99D72C1D08730018C012 /* TasklyEditTask.swift */,
+				1225602E2C150DD3007D72A6 /* TasklyHomePage.swift */,
+			);
+			name = MainViews;
 			sourceTree = "<group>";
 		};
 		1225600F2C150D70007D72A6 = {
@@ -140,10 +196,8 @@
 		1225602B2C150D9C007D72A6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				121C98F22C238830003BE2C2 /* MainViews */,
 				122560332C1512B9007D72A6 /* CustomViews */,
-				122560422C166C6D007D72A6 /* TasklyCreateTask.swift */,
-				120B99D72C1D08730018C012 /* TasklyEditTask.swift */,
-				1225602E2C150DD3007D72A6 /* TasklyHomePage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -159,17 +213,9 @@
 		122560332C1512B9007D72A6 /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
-				122560342C1512CB007D72A6 /* TasklyLogo.swift */,
-				122560362C15281F007D72A6 /* TasklySearchBar.swift */,
-				1225603A2C16540B007D72A6 /* TasklyLogoSection.swift */,
-				1225603C2C16572F007D72A6 /* TasklyFilter.swift */,
-				1225603E2C165928007D72A6 /* TasklySingleFilterButton.swift */,
-				122560402C165FAD007D72A6 /* TasklyLeftTitle.swift */,
-				122560442C166CE5007D72A6 /* TasklyNoTasks.swift */,
-				120B99CE2C1917B80018C012 /* TasklyList.swift */,
-				120B99D52C1B31BF0018C012 /* TasklyTaskListElement.swift */,
-				120B99D92C1E11F80018C012 /* TasklyCustomTextField.swift */,
-				120B99E12C207E140018C012 /* TasklyAddEditList.swift */,
+				121C98EF2C2387AC003BE2C2 /* CustomLogoSectionViews */,
+				121C98ED2C238750003BE2C2 /* CustomTasksViews */,
+				121C98EC2C238734003BE2C2 /* CustomGroupViews */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -281,6 +327,7 @@
 				122560372C15281F007D72A6 /* TasklySearchBar.swift in Sources */,
 				122560452C166CE5007D72A6 /* TasklyNoTasks.swift in Sources */,
 				122560352C1512CB007D72A6 /* TasklyLogo.swift in Sources */,
+				121C98EB2C2386E6003BE2C2 /* TasklyGroupListElement.swift in Sources */,
 				122560392C1647C6007D72A6 /* TasklyViewModel.swift in Sources */,
 				1225603D2C16572F007D72A6 /* TasklyFilter.swift in Sources */,
 				120B99DA2C1E11F80018C012 /* TasklyCustomTextField.swift in Sources */,
@@ -293,6 +340,7 @@
 				120B99E22C207E140018C012 /* TasklyAddEditList.swift in Sources */,
 				120B99CF2C1917B80018C012 /* TasklyList.swift in Sources */,
 				122560322C150F13007D72A6 /* Color+Extension.swift in Sources */,
+				121C98E92C2385CD003BE2C2 /* TasklyGroupList.swift in Sources */,
 				1225603B2C16540B007D72A6 /* TasklyLogoSection.swift in Sources */,
 				1225601C2C150D70007D72A6 /* TasklyApp.swift in Sources */,
 				122560572C18F654007D72A6 /* CoreDataTasklyService.swift in Sources */,

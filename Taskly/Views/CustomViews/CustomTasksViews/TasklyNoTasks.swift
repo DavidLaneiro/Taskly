@@ -33,17 +33,17 @@ struct TasklyNoTasks: View {
                 Image(systemName: upperImageName)
                     .resizable()
                     .frame(width: 35, height: 35)
-                    .foregroundStyle(TasklyCustomColors.customYellow)
+                    .foregroundStyle(TasklyCustomColors.customTextColor)
                     .opacity(0.8)
 
                 Text(largerText)
                     .font(.largeTitle.bold())
-                    .foregroundStyle(TasklyCustomColors.customYellow)
+                    .foregroundStyle(TasklyCustomColors.customTextColor)
                     .opacity(0.8)
                 
                 Text(shorterText)
                     .font(.footnote.bold())
-                    .foregroundStyle(TasklyCustomColors.customYellow)
+                    .foregroundStyle(TasklyCustomColors.customTextColor)
                     .opacity(0.8)
             }
             .padding()

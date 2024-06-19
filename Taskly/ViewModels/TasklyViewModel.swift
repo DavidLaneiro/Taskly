@@ -24,6 +24,9 @@ class TasklyViewModel : ObservableObject{
     
     @Published var toggleState : Bool = false
     
+    // Variable to toggle Groups vision
+    @Published var toggleGroups : Bool = false
+    
     var trimmedTaskContent: String {
         return taskContent.trimmingCharacters(in: .whitespacesAndNewlines)
     }

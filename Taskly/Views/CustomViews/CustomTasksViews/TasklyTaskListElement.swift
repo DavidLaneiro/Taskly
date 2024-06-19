@@ -30,7 +30,7 @@ struct TasklyTaskListElement: View {
                 Image(systemName: task.isCompleted ? "checkmark.circle.fill" : "circle")
                     .resizable()
                     .frame(width: 25, height: 25)
-                    .foregroundStyle(TasklyCustomColors.darkerOrange)
+                    .foregroundStyle(TasklyCustomColors.darker)
                     .onTapGesture(perform: {
                         
                         // Needs to update the variable to True
@@ -42,9 +42,20 @@ struct TasklyTaskListElement: View {
                     .lineLimit(1)
                     .font(.system(size: 16))
                     .bold()
-                    .foregroundStyle(TasklyCustomColors.darkerOrange)
+                    .foregroundStyle(TasklyCustomColors.darker)
                     .strikethrough(task.isCompleted ? true : false)
                     .animation(.easeInOut, value: task.isCompleted)
+                
+                Spacer()
+                
+                Image(systemName: "star")
+                    .resizable()
+                    .frame(width: 20, height: 20)
+                    .foregroundStyle(TasklyCustomColors.darker)
+                    .onTapGesture(perform: {
+                        // Needs favorite logic!!!
+                    })
+                
             }
             
             

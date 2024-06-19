@@ -24,31 +24,30 @@ struct TasklyFilter: View {
                 ScrollView(.horizontal) {
                     HStack(spacing: 10) {
                         filterButton(
-                            title: "All",
+                            title: "All tasks",
                             imageName: "list.bullet.clipboard",
                             buttonType: .All,
                             id: 1,
                             proxy: proxy
                         )
-
                         filterButton(
                             title: "In progress",
                             imageName: "rays",
                             buttonType: .InProgress,
-                            id: 3,
-                            proxy: proxy
-                        )
-                        filterButton(
-                            title: "Done",
-                            imageName: "checkmark",
-                            buttonType: .Completed,
                             id: 2,
                             proxy: proxy
                         )
+                        filterButton(
+                            title: "Completed tasks",
+                            imageName: "checkmark",
+                            buttonType: .Completed,
+                            id: 3,
+                            proxy: proxy
+                        )
                         
-                    }
+                    }.padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
                 }
-                .padding(.horizontal, 20)
+                .padding(.horizontal, 0)
                 .scrollIndicators(.hidden)
             }
 

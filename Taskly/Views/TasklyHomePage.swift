@@ -13,18 +13,31 @@ struct TasklyHomePage: View {
     
     var body: some View {
         ZStack {
-            TasklyCustomColors.lighterOrange.ignoresSafeArea()
+            TasklyCustomColors.lighter.ignoresSafeArea()
             
             VStack(spacing: -10) {
                 // Logo section
                 TasklyLogoSection(tasklyViewModel: self.tasklyViewModel)
                 
-                VStack {
-                    // Search bar
-                    TasklySearchBar(tasklyViewModel: self.tasklyViewModel)
-                    
-                    // Filters
-                    TasklyFilter(tasklyViewModel: self.tasklyViewModel)
+                VStack(spacing: self.tasklyViewModel.toggleGroups ? -10 : 10) {
+                
+                
+                    if !self.tasklyViewModel.toggleGroups{
+                        
+                        // Search bar tasks
+                        TasklySearchBar(tasklyViewModel: self.tasklyViewModel, placeholder: "Search for your task")
+                        
+                        // Filters
+                        TasklyFilter(tasklyViewModel: self.tasklyViewModel)
+                        
+                    }else{
+                        
+                        // Search bar groups
+                        TasklySearchBar(tasklyViewModel: self.tasklyViewModel, placeholder: "Search for your group")
+                        
+                        
+                    }
+                
                     
                     content()
                 }
@@ -50,8 +63,16 @@ struct TasklyHomePage: View {
                 shorterText: "No results found for your search.",
                 tapEnabled: false
             )
-        } else {
-            tasksView()
+        } else if tasklyViewModel.toggleGroups {
+            
+            withAnimation{
+                
+                groupsView()
+            }
+        }else{
+            withAnimation{
+                tasksView()
+            }
         }
     }
     
@@ -71,13 +92,18 @@ struct TasklyHomePage: View {
     
     @ViewBuilder
     private func tasksView() -> some View {
-        VStack(spacing: 20) {
             TasklyList(tasklyViewModel: self.tasklyViewModel)
-        }
+    }
+    
+    @ViewBuilder
+    private func groupsView() -> some View {
+        TasklyGroupList(tasklyViewModel: self.tasklyViewModel)
     }
 }
 
 #Preview {
     TasklyHomePage()
 }
+
+
 

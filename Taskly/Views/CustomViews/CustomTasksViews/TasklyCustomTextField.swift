@@ -24,12 +24,12 @@ struct TasklyCustomTextField: View {
         ZStack(alignment: .topLeading){
             
             TextField("", text: $tasklyViewModel.taskContent, prompt: Text("Insert your task here")
-                .foregroundStyle(TasklyCustomColors.lighterOrange
+                .foregroundStyle(TasklyCustomColors.lighter
                     .opacity(0.5)
                 ), axis: .vertical)
             .padding(EdgeInsets(top: 10, leading: 0, bottom: 10, trailing: 0))
             .focused(self.$isTextfieldFocused)
-            .foregroundStyle(TasklyCustomColors.darkerOrange)
+            .foregroundStyle(TasklyCustomColors.darker)
             .font(.system(size: 16, weight: .bold)) 
         }
         .toolbar{

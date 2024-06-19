@@ -29,7 +29,7 @@ struct TasklyList: View {
                             }.opacity(0)
                             
                             TasklyTaskListElement(task: task, tasklyViewModel: self.tasklyViewModel)
-                        }.listRowBackground(TasklyCustomColors.customYellow)
+                        }.listRowBackground(TasklyCustomColors.customTextColor)
                             
                          
                         
@@ -44,7 +44,7 @@ struct TasklyList: View {
                     
                 }header: {
                     
-                    Text("Tasks").foregroundStyle(TasklyCustomColors.customYellow)
+                    Text("Tasks").foregroundStyle(TasklyCustomColors.customTextColor)
                 }
                 
                 
